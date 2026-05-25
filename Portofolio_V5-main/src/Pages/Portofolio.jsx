@@ -8,7 +8,7 @@ import Box from "@mui/material/Box";
 import TechStackIcon from "../components/TechStackIcon";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { Code, Award, Boxes, Github, Calendar, Building, ExternalLink, CheckCircle2, FileText } from "lucide-react";
+import { Code, Award, Boxes, Github, Calendar, Building, CheckCircle2, FileText } from "lucide-react";
 import PropTypes from "prop-types";
 
 /* =========================
@@ -63,43 +63,43 @@ const projects = [
 const certificates = [
   {
     id: 1,
-    title: "2nd Place - Appropriate Innovation Technology Competition",
-    issuer: "AIT Competition",
-    date: "April 2023",
-    driveLink: "https://drive.google.com/file/d/example1/view", // Ganti dengan link drive asli
-    description: "Designed automatic seed planter with mechanical filtration & ergonomic lever mechanism."
+    title: "Belajar Dasar AI",
+    issuer: "Dicoding Indonesia",
+    date: "Februari 2026",
+    driveLink: "https://drive.google.com/file/d/1-XzXDJ5XBc15wFmYuRLGcwW5L1jnh7kV/view?usp=sharing", 
+    description: "Mempelajari konsep dasar AI, termasuk pengolahan data dan algoritma machine learning sederhana."
   },
   {
     id: 2,
-    title: "Azure AI Fundamentals",
-    issuer: "Microsoft",
-    date: "June 2025",
-    driveLink: "https://drive.google.com/file/d/example2/view",
-    description: "Fundamentals of AI concepts and Azure AI services."
+    title: "Belajar Fundamental Deep Learning",
+    issuer: "Dicoding Indonesia",
+    date: "Mei 2026",
+    driveLink: "https://drive.google.com/file/d/1KR4qmAw3jAv8PEwcxtmX1UzPmNPqbZbW/view?usp=sharing",
+    description: "Mendalami neural network, backpropagation, dan implementasi deep learning dengan TensorFlow."
   },
   {
     id: 3,
-    title: "TensorFlow Developer Certificate",
-    issuer: "Google TensorFlow",
-    date: "May 2025",
-    driveLink: "https://drive.google.com/file/d/example3/view",
-    description: "Machine learning and deep learning with TensorFlow."
+    title: "Lomba Teknologi Tepat Guna",
+    issuer: "Dinas Sosial dan Pemberdayan Masyarakat Kota Batam",
+    date: "April 2023",
+    driveLink: "https://drive.google.com/file/d/12mPHKGDvxukCtQQSVaKN9kFIIMPTSu8V/view?usp=sharing",
+    description: "Juara 2 dalam kompetisi nasional teknologi tepat guna dengan inovasi alat penanam benih otomatis."
   },
   {
     id: 4,
-    title: "Junior Web Developer (BNSP)",
-    issuer: "LSP Informatika",
-    date: "October 2023",
-    driveLink: "https://drive.google.com/file/d/example4/view",
-    description: "National competency certification for web development."
+    title: "Machine Learning",
+    issuer: "Dicoding Indonesia",
+    date: "April 2026",
+    driveLink: "https://drive.google.com/file/d/1QCk1zG8Ly8BMb_cqKUHdxqkNl3J86ax-/view?usp=sharing",
+    description: "Mencakup supervised & unsupervised learning, model evaluation, dan feature engineering."
   },
   {
     id: 5,
-    title: "LASKAR AI 2025",
-    issuer: "AI Engineer Program",
-    date: "Feb - Jul 2025",
-    driveLink: "https://drive.google.com/file/d/example5/view",
-    description: "Intensive AI program covering data preprocessing, model deployment with TensorFlow."
+    title: "Pemrograman dengan Python",
+    issuer: "Dicoding Indonesia",
+    date: "February 2026",
+    driveLink: "https://drive.google.com/file/d/1gGK2t0IuyV0boWNOnv2dCm6wCVtm04Lv/view?usp=sharing",
+    description: "Dasar-dasar Python, struktur data, OOP, dan penggunaan library untuk data science."
   }
 ];
 
@@ -156,7 +156,7 @@ function a11yProps(index) {
 }
 
 /* =========================
-   CARD PROYEK (tanpa gambar)
+   CARD PROYEK
 ========================= */
 const ProjectCard = ({ project, index }) => {
   return (
@@ -168,7 +168,6 @@ const ProjectCard = ({ project, index }) => {
       <div className="p-6 flex flex-col flex-grow">
         <h3 className="text-2xl font-bold text-white">{project.title}</h3>
         
-        {/* Bullet points dengan centang */}
         <div className="mt-4 space-y-2">
           {project.bulletPoints.map((point, i) => (
             <div key={i} className="flex items-start gap-2">
@@ -189,7 +188,6 @@ const ProjectCard = ({ project, index }) => {
           ))}
         </div>
         
-        {/* Tombol GitHub */}
         <div className="flex flex-wrap gap-3 mt-6">
           <a
             href={project.github}
@@ -212,7 +210,7 @@ ProjectCard.propTypes = {
 };
 
 /* =========================
-   CARD SERTIFIKAT (tanpa gambar, dengan tombol lihat sertifikat)
+   CARD SERTIFIKAT
 ========================= */
 const CertificateCard = ({ certificate, index }) => {
   return (
@@ -236,7 +234,6 @@ const CertificateCard = ({ certificate, index }) => {
             {certificate.description}
           </p>
         )}
-        {/* Tombol lihat sertifikat */}
         <div className="mt-6">
           <a
             href={certificate.driveLink}
@@ -259,7 +256,7 @@ CertificateCard.propTypes = {
 };
 
 /* =========================
-   BOOTCAMP INFO
+   BOOTCAMP INFO (tanpa tombol)
 ========================= */
 const BootcampInfo = () => {
   return (
@@ -285,15 +282,7 @@ const BootcampInfo = () => {
             <p className="text-gray-300 text-sm">Capstone project: AI-based CV analysis for curriculum vitae evaluation</p>
           </div>
         </div>
-        <a
-          href="#"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 mt-6 px-5 py-3 rounded-xl bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-white hover:scale-105 transition-all duration-300 w-fit"
-        >
-          <ExternalLink className="w-4 h-4" />
-          View Bootcamp Details
-        </a>
+        {/* Tombol "View Bootcamp Details" TELAH DIHAPUS */}
       </div>
     </div>
   );
@@ -321,7 +310,6 @@ export default function FullWidthTabs() {
       className="md:px-[10%] px-[5%] w-full sm:mt-0 mt-[3rem] bg-[#030014] overflow-hidden"
       id="Portofolio"
     >
-      {/* Header */}
       <div className="text-center pb-10" data-aos="fade-up" data-aos-duration="1000">
         <h2 className="inline-block text-3xl md:text-5xl font-bold text-center mx-auto text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#a855f7]">
           <span
@@ -406,7 +394,6 @@ export default function FullWidthTabs() {
           </Tabs>
         </AppBar>
 
-        {/* Tab Projects */}
         <TabPanel value={value} index={0} dir={theme.direction}>
           <div className="container mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -423,7 +410,6 @@ export default function FullWidthTabs() {
           </div>
         </TabPanel>
 
-        {/* Tab Certificates */}
         <TabPanel value={value} index={1} dir={theme.direction}>
           <div className="container mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -434,7 +420,6 @@ export default function FullWidthTabs() {
           </div>
         </TabPanel>
 
-        {/* Tab Tech Stack */}
         <TabPanel value={value} index={2} dir={theme.direction}>
           <div className="container mx-auto pb-[5%]">
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
