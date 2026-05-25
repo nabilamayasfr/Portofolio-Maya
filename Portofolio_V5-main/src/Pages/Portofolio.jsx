@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import { useTheme } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Tabs from "@mui/material/Tabs";
@@ -8,17 +8,16 @@ import Box from "@mui/material/Box";
 import TechStackIcon from "../components/TechStackIcon";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { Code, Award, Boxes, Github, Calendar, Building, ExternalLink, CheckCircle2 } from "lucide-react";
+import { Code, Award, Boxes, Github, Calendar, Building, ExternalLink, CheckCircle2, FileText } from "lucide-react";
 import PropTypes from "prop-types";
 
 /* =========================
-   DATA PROYEK (dari CV)
+   DATA PROYEK (tanpa foto)
 ========================= */
 const projects = [
   {
     title: "Sign Language Recognition Web App",
-    image: "/projects/signlang.png",
-    github: "https://github.com/nabilamayasfr/sign-language-app",
+    github: "https://github.com/nabilamayasfr/ASBI-Project",
     tech: ["FastAPI", "OpenCV", "MediaPipe", "CNN", "TensorFlow"],
     bulletPoints: [
       "Leading end-to-end development of real-time Indonesian Sign Language recognition",
@@ -28,8 +27,7 @@ const projects = [
   },
   {
     title: "Indonesian Traffic Sign Recognition",
-    image: "/projects/trafficsign.png",
-    github: "https://github.com/nabilamayasfr/traffic-sign-app",
+    github: "https://github.com/arrel123/RambuID",
     tech: ["Flutter", "TensorFlow Lite", "CNN", "Python"],
     bulletPoints: [
       "End-to-end ML pipeline: preprocessing, training, evaluation",
@@ -39,8 +37,7 @@ const projects = [
   },
   {
     title: "Internet Cafe Management App",
-    image: "/projects/cafe.png",
-    github: "https://github.com/nabilamayasfr/cafe-management",
+    github: "https://github.com/achul-cos/project-matrix-pbl",
     tech: ["Laravel", "MySQL", "PHP", "Tailwind"],
     bulletPoints: [
       "Real-time billing engine to automate operational processes",
@@ -50,8 +47,7 @@ const projects = [
   },
   {
     title: "Boarding House Management Website",
-    image: "/projects/boarding.png",
-    github: "https://github.com/nabilamayasfr/boarding-house",
+    github: "https://github.com/nabilamayasfr/kostku.web",
     tech: ["Laravel", "MySQL", "Bootstrap"],
     bulletPoints: [
       "Full-stack platform with CRUD & secure authentication",
@@ -62,7 +58,7 @@ const projects = [
 ];
 
 /* =========================
-   SERTIFIKAT
+   SERTIFIKAT (5 item, tanpa foto, dengan link drive)
 ========================= */
 const certificates = [
   {
@@ -70,8 +66,40 @@ const certificates = [
     title: "2nd Place - Appropriate Innovation Technology Competition",
     issuer: "AIT Competition",
     date: "April 2023",
-    image: "/certificates/ait-2nd.jpg",
-    description: "Designed automatic seed planter with mechanical filtration & ergonomic lever mechanism. Applied engineering design to solve agricultural problems."
+    driveLink: "https://drive.google.com/file/d/example1/view", // Ganti dengan link drive asli
+    description: "Designed automatic seed planter with mechanical filtration & ergonomic lever mechanism."
+  },
+  {
+    id: 2,
+    title: "Azure AI Fundamentals",
+    issuer: "Microsoft",
+    date: "June 2025",
+    driveLink: "https://drive.google.com/file/d/example2/view",
+    description: "Fundamentals of AI concepts and Azure AI services."
+  },
+  {
+    id: 3,
+    title: "TensorFlow Developer Certificate",
+    issuer: "Google TensorFlow",
+    date: "May 2025",
+    driveLink: "https://drive.google.com/file/d/example3/view",
+    description: "Machine learning and deep learning with TensorFlow."
+  },
+  {
+    id: 4,
+    title: "Junior Web Developer (BNSP)",
+    issuer: "LSP Informatika",
+    date: "October 2023",
+    driveLink: "https://drive.google.com/file/d/example4/view",
+    description: "National competency certification for web development."
+  },
+  {
+    id: 5,
+    title: "LASKAR AI 2025",
+    issuer: "AI Engineer Program",
+    date: "Feb - Jul 2025",
+    driveLink: "https://drive.google.com/file/d/example5/view",
+    description: "Intensive AI program covering data preprocessing, model deployment with TensorFlow."
   }
 ];
 
@@ -79,55 +107,19 @@ const certificates = [
    TECH STACK
 ========================= */
 const techStacks = [
-  { icon: "python.svg", language: "Python" },
-  { icon: "php.svg", language: "PHP" },
-  { icon: "dart.svg", language: "Dart" },
+  { icon: "python.jpg", language: "Python" },
+  { icon: "php.png", language: "PHP" },
+  { icon: "dart.png", language: "Dart" },
   { icon: "javascript.svg", language: "JavaScript" },
-  { icon: "laravel.svg", language: "Laravel" },
-  { icon: "flutter.svg", language: "Flutter" },
-  { icon: "fastapi.svg", language: "FastAPI" },
-  { icon: "tensorflow.svg", language: "TensorFlow" },
-  { icon: "opencv.svg", language: "OpenCV" },
-  { icon: "mysql.svg", language: "MySQL" },
-  { icon: "git.svg", language: "Git" },
-  { icon: "figma.svg", language: "Figma" }
+  { icon: "laravel.png", language: "Laravel" },
+  { icon: "flutter.png", language: "Flutter" },
+  { icon: "FastAPI.png", language: "FastAPI" },
+  { icon: "tensorflow.png", language: "TensorFlow" },
+  { icon: "opencv.png", language: "OpenCV" },
+  { icon: "MySQL.png", language: "MySQL" },
+  { icon: "Git.png", language: "Git" },
+  { icon: "figma.png", language: "Figma" }
 ];
-
-/* =========================
-   TOGGLE BUTTON
-========================= */
-const ToggleButton = ({ onClick, isShowingMore }) => (
-  <button
-    onClick={onClick}
-    className="px-3 py-1.5 text-slate-300 hover:text-white text-sm font-medium transition-all duration-300 ease-in-out flex items-center gap-2 bg-white/5 hover:bg-white/10 rounded-md border border-white/10 hover:border-white/20 backdrop-blur-sm group relative overflow-hidden"
-  >
-    <span className="relative z-10 flex items-center gap-2">
-      {isShowingMore ? "See Less" : "See More"}
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className={`transition-transform duration-300 ${
-          isShowingMore ? "group-hover:-translate-y-0.5" : "group-hover:translate-y-0.5"
-        }`}
-      >
-        <polyline points={isShowingMore ? "18 15 12 9 6 15" : "6 9 12 15 18 9"}></polyline>
-      </svg>
-    </span>
-    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-500/50 transition-all duration-300 group-hover:w-full"></span>
-  </button>
-);
-
-ToggleButton.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  isShowingMore: PropTypes.bool.isRequired,
-};
 
 /* =========================
    TAB PANEL
@@ -164,7 +156,7 @@ function a11yProps(index) {
 }
 
 /* =========================
-   CARD PROYEK (hanya tombol GitHub)
+   CARD PROYEK (tanpa gambar)
 ========================= */
 const ProjectCard = ({ project, index }) => {
   return (
@@ -173,14 +165,6 @@ const ProjectCard = ({ project, index }) => {
       data-aos-delay={index * 100}
       className="bg-white/5 border border-white/10 rounded-3xl overflow-hidden backdrop-blur-xl hover:scale-[1.02] transition-all duration-500 group h-full flex flex-col"
     >
-      <div className="overflow-hidden">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full h-56 object-cover group-hover:scale-110 transition-all duration-700"
-          onError={(e) => { e.target.src = "/placeholder-project.png"; }}
-        />
-      </div>
       <div className="p-6 flex flex-col flex-grow">
         <h3 className="text-2xl font-bold text-white">{project.title}</h3>
         
@@ -205,7 +189,7 @@ const ProjectCard = ({ project, index }) => {
           ))}
         </div>
         
-        {/* HANYA tombol GitHub, Live Demo dihapus */}
+        {/* Tombol GitHub */}
         <div className="flex flex-wrap gap-3 mt-6">
           <a
             href={project.github}
@@ -228,7 +212,7 @@ ProjectCard.propTypes = {
 };
 
 /* =========================
-   CARD SERTIFIKAT
+   CARD SERTIFIKAT (tanpa gambar, dengan tombol lihat sertifikat)
 ========================= */
 const CertificateCard = ({ certificate, index }) => {
   return (
@@ -237,14 +221,6 @@ const CertificateCard = ({ certificate, index }) => {
       data-aos-delay={index * 100}
       className="bg-white/5 border border-white/10 rounded-3xl overflow-hidden backdrop-blur-xl hover:scale-[1.02] transition-all duration-500 group h-full flex flex-col"
     >
-      <div className="overflow-hidden">
-        <img
-          src={certificate.image}
-          alt={certificate.title}
-          className="w-full h-48 object-cover group-hover:scale-110 transition-all duration-700"
-          onError={(e) => { e.target.src = "/placeholder-cert.png"; }}
-        />
-      </div>
       <div className="p-6 flex flex-col flex-grow">
         <h3 className="text-xl font-bold text-white">{certificate.title}</h3>
         <div className="flex items-center gap-2 mt-2 text-purple-300 text-sm">
@@ -260,6 +236,18 @@ const CertificateCard = ({ certificate, index }) => {
             {certificate.description}
           </p>
         )}
+        {/* Tombol lihat sertifikat */}
+        <div className="mt-6">
+          <a
+            href={certificate.driveLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-white hover:scale-105 transition-all duration-300"
+          >
+            <FileText className="w-4 h-4" />
+            Lihat Sertifikat
+          </a>
+        </div>
       </div>
     </div>
   );
