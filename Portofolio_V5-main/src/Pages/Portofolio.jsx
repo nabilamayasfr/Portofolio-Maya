@@ -8,101 +8,89 @@ import Box from "@mui/material/Box";
 import TechStackIcon from "../components/TechStackIcon";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { Code, Award, Boxes, Github, Calendar, Building, ExternalLink } from "lucide-react";
+import { Code, Award, Boxes, Github, Calendar, Building, ExternalLink, CheckCircle2 } from "lucide-react";
 import PropTypes from "prop-types";
 
 /* =========================
-   DATA PROYEK (4 PROYEK)
+   DATA PROYEK (dari CV)
 ========================= */
 const projects = [
   {
-    title: "SignLearn AI",
-    description: "Interactive sign language learning system using Computer Vision and AI.",
-    image: "/projects/signlearn.png",
-    github: "https://github.com/nabilamayasfr/signlearn-ai",
-    tech: ["React", "FastAPI", "MediaPipe"],
+    title: "Sign Language Recognition Web App",
+    image: "/projects/signlang.png",
+    github: "https://github.com/nabilamayasfr/sign-language-app",
+    tech: ["FastAPI", "OpenCV", "MediaPipe", "CNN", "TensorFlow"],
+    bulletPoints: [
+      "Leading end-to-end development of real-time Indonesian Sign Language recognition",
+      "High-performance backend with FastAPI as integration layer",
+      "Optimized real-time data processing using OpenCV & MediaPipe for hand landmarks"
+    ]
   },
   {
-    title: "Matrix Warnet",
-    description: "Web-based internet cafe rental management system.",
-    image: "/projects/matrix.png",
-    github: "https://github.com/nabilamayasfr/matrix-warnet",
-    tech: ["Laravel", "MySQL", "Tailwind"],
+    title: "Indonesian Traffic Sign Recognition",
+    image: "/projects/trafficsign.png",
+    github: "https://github.com/nabilamayasfr/traffic-sign-app",
+    tech: ["Flutter", "TensorFlow Lite", "CNN", "Python"],
+    bulletPoints: [
+      "End-to-end ML pipeline: preprocessing, training, evaluation",
+      "Custom CNN model deployed into Flutter mobile app",
+      "Seamless on-device performance with TensorFlow Lite"
+    ]
   },
   {
-    title: "Portfolio 3D",
-    description: "3D interactive portfolio website with Three.js and modern animations.",
-    image: "/projects/portfolio3d.png",
-    github: "https://github.com/nabilamayasfr/3d-portfolio",
-    tech: ["Three.js", "React", "Tailwind"],
+    title: "Internet Cafe Management App",
+    image: "/projects/cafe.png",
+    github: "https://github.com/nabilamayasfr/cafe-management",
+    tech: ["Laravel", "MySQL", "PHP", "Tailwind"],
+    bulletPoints: [
+      "Real-time billing engine to automate operational processes",
+      "Role-Based Access Control (RBAC) for admin & operator",
+      "Secure data integrity with MySQL"
+    ]
   },
   {
-    title: "EcoChain",
-    description: "Blockchain-based supply chain tracking for sustainable products.",
-    image: "/projects/ecochain.png",
-    github: "https://github.com/nabilamayasfr/ecochain",
-    tech: ["Solidity", "Ethereum", "Next.js"],
-  },
+    title: "Boarding House Management Website",
+    image: "/projects/boarding.png",
+    github: "https://github.com/nabilamayasfr/boarding-house",
+    tech: ["Laravel", "MySQL", "Bootstrap"],
+    bulletPoints: [
+      "Full-stack platform with CRUD & secure authentication",
+      "Automated financial reporting dashboard",
+      "Monthly revenue monitoring & data-driven insights"
+    ]
+  }
 ];
 
 /* =========================
-   DATA SERTIFIKAT (5 SERTIFIKAT)
+   SERTIFIKAT
 ========================= */
 const certificates = [
   {
     id: 1,
-    title: "Azure AI Fundamentals",
-    issuer: "Microsoft",
-    date: "June 1, 2025",
-    image: "/certificates/azure-ai.jpg",
-  },
-  {
-    id: 2,
-    title: "Dev Cert for Machine Learning with TensorFlow",
-    issuer: "dev.cert by dev.id",
-    date: "May 19, 2025",
-    image: "/certificates/tensorflow-dev.jpg",
-  },
-  {
-    id: 3,
-    title: "Cloud Computing",
-    issuer: "Alibaba Cloud",
-    date: "May 22, 2024",
-    image: "/certificates/alibaba-cloud.jpg",
-  },
-  {
-    id: 4,
-    title: "Junior Web Developer",
-    issuer: "BNSP (LSP Informatika)",
-    date: "October 20, 2023",
-    image: "/certificates/junior-web.jpg",
-  },
-  {
-    id: 5,
-    title: "LASKAR AI 2025",
-    issuer: "AI Engineer Program",
-    date: "February 2025 - July 2025",
-    image: "/certificates/laskar-ai.jpg",
-    description: "Intensive program with practical skills in data preprocessing, model development, and deployment using TensorFlow.",
-  },
+    title: "2nd Place - Appropriate Innovation Technology Competition",
+    issuer: "AIT Competition",
+    date: "April 2023",
+    image: "/certificates/ait-2nd.jpg",
+    description: "Designed automatic seed planter with mechanical filtration & ergonomic lever mechanism. Applied engineering design to solve agricultural problems."
+  }
 ];
 
 /* =========================
    TECH STACK
 ========================= */
 const techStacks = [
-  { icon: "html.svg", language: "HTML" },
-  { icon: "css.svg", language: "CSS" },
+  { icon: "python.svg", language: "Python" },
+  { icon: "php.svg", language: "PHP" },
+  { icon: "dart.svg", language: "Dart" },
   { icon: "javascript.svg", language: "JavaScript" },
-  { icon: "tailwind.svg", language: "Tailwind CSS" },
-  { icon: "reactjs.svg", language: "ReactJS" },
-  { icon: "vite.svg", language: "Vite" },
-  { icon: "nodejs.svg", language: "Node JS" },
-  { icon: "bootstrap.svg", language: "Bootstrap" },
-  { icon: "firebase.svg", language: "Firebase" },
-  { icon: "MUI.svg", language: "Material UI" },
-  { icon: "vercel.svg", language: "Vercel" },
-  { icon: "SweetAlert.svg", language: "SweetAlert2" },
+  { icon: "laravel.svg", language: "Laravel" },
+  { icon: "flutter.svg", language: "Flutter" },
+  { icon: "fastapi.svg", language: "FastAPI" },
+  { icon: "tensorflow.svg", language: "TensorFlow" },
+  { icon: "opencv.svg", language: "OpenCV" },
+  { icon: "mysql.svg", language: "MySQL" },
+  { icon: "git.svg", language: "Git" },
+  { icon: "figma.svg", language: "Figma" }
 ];
 
 /* =========================
@@ -176,7 +164,7 @@ function a11yProps(index) {
 }
 
 /* =========================
-   CARD PROYEK
+   CARD PROYEK (hanya tombol GitHub)
 ========================= */
 const ProjectCard = ({ project, index }) => {
   return (
@@ -190,13 +178,22 @@ const ProjectCard = ({ project, index }) => {
           src={project.image}
           alt={project.title}
           className="w-full h-56 object-cover group-hover:scale-110 transition-all duration-700"
+          onError={(e) => { e.target.src = "/placeholder-project.png"; }}
         />
       </div>
       <div className="p-6 flex flex-col flex-grow">
         <h3 className="text-2xl font-bold text-white">{project.title}</h3>
-        <p className="text-gray-400 mt-3 text-sm leading-relaxed flex-grow">
-          {project.description}
-        </p>
+        
+        {/* Bullet points dengan centang */}
+        <div className="mt-4 space-y-2">
+          {project.bulletPoints.map((point, i) => (
+            <div key={i} className="flex items-start gap-2">
+              <CheckCircle2 className="w-5 h-5 text-purple-400 shrink-0 mt-0.5" />
+              <p className="text-gray-300 text-sm leading-relaxed">{point}</p>
+            </div>
+          ))}
+        </div>
+
         <div className="flex flex-wrap gap-2 mt-5">
           {project.tech.map((item, i) => (
             <span
@@ -207,15 +204,19 @@ const ProjectCard = ({ project, index }) => {
             </span>
           ))}
         </div>
-        <a
-          href={project.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 mt-6 px-5 py-3 rounded-xl bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-white hover:scale-105 transition-all duration-300 w-fit"
-        >
-          <Github className="w-4 h-4" />
-          View GitHub
-        </a>
+        
+        {/* HANYA tombol GitHub, Live Demo dihapus */}
+        <div className="flex flex-wrap gap-3 mt-6">
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-white hover:scale-105 transition-all duration-300"
+          >
+            <Github className="w-4 h-4" />
+            GitHub
+          </a>
+        </div>
       </div>
     </div>
   );
@@ -270,9 +271,7 @@ CertificateCard.propTypes = {
 };
 
 /* =========================
-   BOOTCAMP INFO (Course Experience)
-   - Menggunakan gaya card yang SAMA dengan card proyek
-   - Tombol dengan ukuran SAMA dengan tombol "View GitHub"
+   BOOTCAMP INFO
 ========================= */
 const BootcampInfo = () => {
   return (
@@ -285,20 +284,21 @@ const BootcampInfo = () => {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <h4 className="text-xl font-bold text-white">Dicoding x DBS Foundation</h4>
-            <p className="text-gray-300 text-sm">Bootcamp Program - Frontend & Backend Development</p>
-          </div>
-          <div className="text-sm text-gray-400">
-            <span className="px-3 py-1 rounded-full bg-white/10">2025</span>
+            <p className="text-gray-300 text-sm">AI Engineer Bootcamp (Feb 2026 - Present)</p>
           </div>
         </div>
-        <p className="mt-4 text-gray-300 text-sm leading-relaxed">
-          Saya mengikuti bootcamp intensif yang diselenggarakan oleh <span className="text-purple-300 font-medium">Dicoding</span> bekerja sama dengan 
-          <span className="text-purple-300 font-medium"> DBS Foundation</span>. Program ini fokus pada pengembangan aplikasi web modern 
-          dengan teknologi terkini, serta membangun proyek-proyek kolaboratif yang siap industri.
-        </p>
-        {/* Tombol dengan ukuran dan style SAMA dengan tombol di card proyek */}
+        <div className="mt-4 space-y-2">
+          <div className="flex items-start gap-2">
+            <CheckCircle2 className="w-4 h-4 text-purple-400 shrink-0 mt-0.5" />
+            <p className="text-gray-300 text-sm">Completed modules: ML, Deep Learning, Computer Vision with TensorFlow</p>
+          </div>
+          <div className="flex items-start gap-2">
+            <CheckCircle2 className="w-4 h-4 text-purple-400 shrink-0 mt-0.5" />
+            <p className="text-gray-300 text-sm">Capstone project: AI-based CV analysis for curriculum vitae evaluation</p>
+          </div>
+        </div>
         <a
-          href="#" // Ganti dengan link detail bootcamp jika ada
+          href="#"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 mt-6 px-5 py-3 rounded-xl bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-white hover:scale-105 transition-all duration-300 w-fit"
@@ -312,16 +312,11 @@ const BootcampInfo = () => {
 };
 
 /* =========================
-   MAIN COMPONENT (tanpa SwipeableViews)
+   MAIN COMPONENT
 ========================= */
 export default function FullWidthTabs() {
   const theme = useTheme();
   const [value, setValue] = useState(0);
-  const [showAllProjects, setShowAllProjects] = useState(false);
-  const [showAllCertificates, setShowAllCertificates] = useState(false);
-
-  const initialProjectsCount = 4;
-  const initialCertificatesCount = 5;
 
   useEffect(() => {
     AOS.init({
@@ -332,19 +327,6 @@ export default function FullWidthTabs() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
-  const toggleShowMore = useCallback((type) => {
-    if (type === "projects") {
-      setShowAllProjects((prev) => !prev);
-    } else {
-      setShowAllCertificates((prev) => !prev);
-    }
-  }, []);
-
-  const displayedProjects = showAllProjects ? projects : projects.slice(0, initialProjectsCount);
-  const displayedCertificates = showAllCertificates
-    ? certificates
-    : certificates.slice(0, initialCertificatesCount);
 
   return (
     <div
@@ -366,13 +348,11 @@ export default function FullWidthTabs() {
           </span>
         </h2>
         <p className="text-slate-400 max-w-2xl mx-auto text-sm md:text-base mt-2">
-          Explore my journey through projects, certifications, and technical expertise.
-          Each section represents a milestone in my continuous learning path.
+          Explore my projects, certifications, and technical expertise from my learning journey.
         </p>
       </div>
 
       <Box sx={{ width: "100%" }}>
-        {/* AppBar Tabs */}
         <AppBar
           position="static"
           elevation={0}
@@ -419,65 +399,34 @@ export default function FullWidthTabs() {
                   color: "#ffffff",
                   backgroundColor: "rgba(139, 92, 246, 0.1)",
                   transform: "translateY(-2px)",
-                  "& .lucide": {
-                    transform: "scale(1.1) rotate(5deg)",
-                  },
                 },
                 "&.Mui-selected": {
                   color: "#fff",
                   background:
                     "linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.2))",
                   boxShadow: "0 4px 15px -3px rgba(139, 92, 246, 0.2)",
-                  "& .lucide": {
-                    color: "#a78bfa",
-                  },
                 },
               },
               "& .MuiTabs-indicator": {
                 height: 0,
               },
-              "& .MuiTabs-flexContainer": {
-                gap: "8px",
-              },
             }}
           >
-            <Tab
-              icon={<Code className="mb-2 w-5 h-5 transition-all duration-300" />}
-              label="Projects"
-              {...a11yProps(0)}
-            />
-            <Tab
-              icon={<Award className="mb-2 w-5 h-5 transition-all duration-300" />}
-              label="Certificates"
-              {...a11yProps(1)}
-            />
-            <Tab
-              icon={<Boxes className="mb-2 w-5 h-5 transition-all duration-300" />}
-              label="Tech Stack"
-              {...a11yProps(2)}
-            />
+            <Tab icon={<Code className="mb-2 w-5 h-5" />} label="Projects" {...a11yProps(0)} />
+            <Tab icon={<Award className="mb-2 w-5 h-5" />} label="Certificates" {...a11yProps(1)} />
+            <Tab icon={<Boxes className="mb-2 w-5 h-5" />} label="Tech Stack" {...a11yProps(2)} />
           </Tabs>
         </AppBar>
 
         {/* Tab Projects */}
         <TabPanel value={value} index={0} dir={theme.direction}>
-          <div className="container mx-auto flex justify-center items-center overflow-hidden">
+          <div className="container mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {displayedProjects.map((project, index) => (
+              {projects.map((project, index) => (
                 <ProjectCard key={project.title} project={project} index={index} />
               ))}
             </div>
           </div>
-          {projects.length > initialProjectsCount && (
-            <div className="mt-6 w-full flex justify-start">
-              <ToggleButton
-                onClick={() => toggleShowMore("projects")}
-                isShowingMore={showAllProjects}
-              />
-            </div>
-          )}
-
-          {/* Course Experience Section - dengan card dan tombol yang SEBARIS */}
           <div className="mt-12">
             <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#a855f7] mb-4">
               Course Experience
@@ -488,39 +437,21 @@ export default function FullWidthTabs() {
 
         {/* Tab Certificates */}
         <TabPanel value={value} index={1} dir={theme.direction}>
-          <div className="container mx-auto flex justify-center items-center overflow-hidden">
+          <div className="container mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {displayedCertificates.map((certificate, index) => (
+              {certificates.map((certificate, index) => (
                 <CertificateCard key={certificate.id} certificate={certificate} index={index} />
               ))}
             </div>
           </div>
-          {certificates.length > initialCertificatesCount && (
-            <div className="mt-6 w-full flex justify-start">
-              <ToggleButton
-                onClick={() => toggleShowMore("certificates")}
-                isShowingMore={showAllCertificates}
-              />
-            </div>
-          )}
         </TabPanel>
 
         {/* Tab Tech Stack */}
         <TabPanel value={value} index={2} dir={theme.direction}>
-          <div className="container mx-auto flex justify-center items-center overflow-hidden pb-[5%]">
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 lg:gap-8 gap-5">
+          <div className="container mx-auto pb-[5%]">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
               {techStacks.map((stack, index) => (
-                <div
-                  key={index}
-                  data-aos={
-                    index % 3 === 0
-                      ? "fade-up-right"
-                      : index % 3 === 1
-                      ? "fade-up"
-                      : "fade-up-left"
-                  }
-                  data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}
-                >
+                <div key={index} data-aos="fade-up" data-aos-duration="1000">
                   <TechStackIcon TechStackIcon={stack.icon} Language={stack.language} />
                 </div>
               ))}
