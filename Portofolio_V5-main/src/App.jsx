@@ -19,6 +19,7 @@ const ProjectDetails = lazy(() => import("./components/ProjectDetail"));
 const WelcomeScreen = lazy(() => import("./Pages/WelcomeScreen"));
 const NotFoundPage = lazy(() => import("./Pages/404"));
 
+/* ================= LANDING PAGE ================= */
 const LandingPage = ({ showWelcome, setShowWelcome }) => {
   return (
     <>
@@ -33,13 +34,14 @@ const LandingPage = ({ showWelcome, setShowWelcome }) => {
       {!showWelcome && (
         <>
           <Navbar />
-      
           <Home />
           <About />
+
           <Suspense fallback={<div className="h-20" />}>
             <Portofolio />
             <ContactPage />
           </Suspense>
+
           <Footer />
         </>
       )}
@@ -47,6 +49,7 @@ const LandingPage = ({ showWelcome, setShowWelcome }) => {
   );
 };
 
+/* ================= PROJECT PAGE ================= */
 const ProjectPageLayout = () => (
   <>
     <Suspense fallback={<div className="min-h-screen" />}>
@@ -56,16 +59,19 @@ const ProjectPageLayout = () => (
   </>
 );
 
+/* ================= APP ================= */
 function App() {
   const [showWelcome, setShowWelcome] = useState(true);
 
   return (
-    
     <HelmetProvider>
+      {/* background global */}
       <div className="pointer-events-none">
-  <AnimatedBackground />
-</div>
-      <BrowserRouter>
+        <AnimatedBackground />
+      </div>
+
+      {/* IMPORTANT: basename untuk GitHub Pages */}
+      <BrowserRouter basename="/Portofolio-Maya">
         <Routes>
           {/* PUBLIC */}
           <Route

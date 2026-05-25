@@ -3,6 +3,9 @@ import { FileText, Code, Award, Globe, ArrowUpRight, Sparkles } from "lucide-rea
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+// ✅ Import gambar dari folder src/assets
+import profilePhoto from "../assets/Photo.jpeg"; // Sesuaikan path jika komponen tidak di src/components
+
 // Memoized Components
 const Header = memo(() => (
   <div className="text-center lg:mb-8 mb-2 px-[5%]">
@@ -42,8 +45,9 @@ const ProfileImage = memo(() => (
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40 z-10 transition-opacity duration-700 group-hover:opacity-0 hidden sm:block" />
           <div className="absolute inset-0 bg-gradient-to-t from-purple-500/20 via-transparent to-blue-500/20 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 hidden sm:block" />
 
+          {/* ✅ Menggunakan variable import profilePhoto */}
           <img
-            src="/Photo.jpg"
+            src={profilePhoto}
             alt="Profile"
             className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-2"
             loading="lazy"
@@ -105,11 +109,9 @@ const StatCard = memo(({ icon: Icon, color, value, label, description, animation
 ));
 
 const AboutPage = () => {
-  // Nilai tetap: 4 proyek, 5 sertifikat
   const totalProjects = 4;
   const totalCertificates = 5;
 
-  // Inisialisasi AOS
   useEffect(() => {
     const initAOS = () => {
       AOS.init({
@@ -132,7 +134,6 @@ const AboutPage = () => {
     };
   }, []);
 
-  // Data stat card (hanya 2: Projects dan Certificates)
   const statsData = useMemo(
     () => [
       {
@@ -190,7 +191,7 @@ const AboutPage = () => {
               data-aos="fade-right"
               data-aos-duration="1500"
             >
-       I am an Informatics Engineering student at Politeknik Negeri Batam, specializing in Web Development and AI Engineering. I have experience building modern web applications using Laravel, React, and FastAPI, as well as deploying machine learning models (TensorFlow, CNN) into scalable, user‑centric systems. I am capable of managing end‑to‑end projects – from design to deployment – and focused on delivering efficient digital solutions that drive business value and improve user experience.
+              I am an Informatics Engineering student at Politeknik Negeri Batam, specializing in Web Development and AI Engineering. I have experience building modern web applications using Laravel, React, and FastAPI, as well as deploying machine learning models (TensorFlow, CNN) into scalable, user‑centric systems. I am capable of managing end‑to‑end projects – from design to deployment – and focused on delivering efficient digital solutions that drive business value and improve user experience.
             </p>
 
             {/* Quote Section */}
