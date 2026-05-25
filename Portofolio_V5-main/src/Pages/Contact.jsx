@@ -11,7 +11,7 @@ const ContactPage = () => {
     AOS.init({ once: false });
   }, []);
 
-  /* ============================== DATA KONTAK ============================== */
+  /* ============================== CONTACT DATA ============================== */
   const contactCards = [
     {
       id: 1,
@@ -65,7 +65,7 @@ const ContactPage = () => {
               WebkitTextFillColor: "transparent",
             }}
           >
-            Hubungi Saya
+            Contact Me
           </span>
         </h2>
         <p
@@ -73,11 +73,11 @@ const ContactPage = () => {
           data-aos-duration="1100"
           className="text-slate-400 max-w-2xl mx-auto text-sm md:text-base mt-2"
         >
-          Terhubung dengan saya melalui platform di bawah ini. Saya akan senang mendengar dari Anda!
+          Connect with me through the platforms below. I would love to hear from you!
         </p>
       </div>
 
-      {/* 4 Card Kontak - hanya ini, tidak ada tambahan apapun di bawahnya */}
+      {/* 4 Contact Cards - only these, nothing else below */}
       <div className="h-auto py-10 flex items-center justify-center" id="Contact">
         <div className="container px-[1%] w-full">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -100,7 +100,7 @@ const ContactPage = () => {
                     rel="noopener noreferrer"
                     className="mt-6 px-5 py-2 rounded-xl bg-white/10 text-white text-sm font-medium hover:bg-white/20 transition-all duration-300 inline-flex items-center gap-2"
                   >
-                    Hubungi
+                    Contact
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                     </svg>
@@ -109,7 +109,7 @@ const ContactPage = () => {
               </div>
             ))}
           </div>
-          {/* TIDAK ADA APAPUN DI SINI - sudah bersih dari card tambahan */}
+          {/* NOTHING ELSE HERE - clean from extra cards */}
         </div>
       </div>
     </div>

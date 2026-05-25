@@ -190,11 +190,7 @@ const AboutPage = () => {
               data-aos="fade-right"
               data-aos-duration="1500"
             >
-              Saya merupakan mahasiswa Teknik Informatika di Politeknik Negeri Batam
-              yang memiliki minat pada bidang Full-Stack Development dan AI
-              Engineering. Berpengalaman dalam mengembangkan aplikasi web modern
-              serta tertarik pada implementasi teknologi Artificial Intelligence
-              untuk membangun solusi digital yang efisien, interaktif, dan inovatif.
+       I am an Informatics Engineering student at Politeknik Negeri Batam, specializing in Web Development and AI Engineering. I have experience building modern web applications using Laravel, React, and FastAPI, as well as deploying machine learning models (TensorFlow, CNN) into scalable, user‑centric systems. I am capable of managing end‑to‑end projects – from design to deployment – and focused on delivering efficient digital solutions that drive business value and improve user experience.
             </p>
 
             {/* Quote Section */}

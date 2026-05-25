@@ -12,7 +12,7 @@ import { Code, Award, Boxes, Github, Calendar, Building, CheckCircle2, FileText 
 import PropTypes from "prop-types";
 
 /* =========================
-   DATA PROYEK (tanpa foto)
+   PROJECT DATA
 ========================= */
 const projects = [
   {
@@ -58,32 +58,32 @@ const projects = [
 ];
 
 /* =========================
-   SERTIFIKAT (5 item, tanpa foto, dengan link drive)
+   CERTIFICATES (all in English)
 ========================= */
 const certificates = [
   {
     id: 1,
-    title: "Belajar Dasar AI",
+    title: "AI Fundamentals",
     issuer: "Dicoding Indonesia",
-    date: "Februari 2026",
+    date: "February 2026",
     driveLink: "https://drive.google.com/file/d/1-XzXDJ5XBc15wFmYuRLGcwW5L1jnh7kV/view?usp=sharing", 
-    description: "Mempelajari konsep dasar AI, termasuk pengolahan data dan algoritma machine learning sederhana."
+    description: "Learned basic AI concepts, including data processing and simple machine learning algorithms."
   },
   {
     id: 2,
-    title: "Belajar Fundamental Deep Learning",
+    title: "Deep Learning Fundamentals",
     issuer: "Dicoding Indonesia",
-    date: "Mei 2026",
+    date: "May 2026",
     driveLink: "https://drive.google.com/file/d/1KR4qmAw3jAv8PEwcxtmX1UzPmNPqbZbW/view?usp=sharing",
-    description: "Mendalami neural network, backpropagation, dan implementasi deep learning dengan TensorFlow."
+    description: "Explored neural networks, backpropagation, and TensorFlow implementation for deep learning."
   },
   {
     id: 3,
-    title: "Lomba Teknologi Tepat Guna",
-    issuer: "Dinas Sosial dan Pemberdayan Masyarakat Kota Batam",
+    title: "Appropriate Technology Competition",
+    issuer: "Department of Social Affairs and Community Empowerment, Batam City",
     date: "April 2023",
     driveLink: "https://drive.google.com/file/d/12mPHKGDvxukCtQQSVaKN9kFIIMPTSu8V/view?usp=sharing",
-    description: "Juara 2 dalam kompetisi nasional teknologi tepat guna dengan inovasi alat penanam benih otomatis."
+    description: "2nd Place in a national competition with an automatic seed planter innovation."
   },
   {
     id: 4,
@@ -91,15 +91,15 @@ const certificates = [
     issuer: "Dicoding Indonesia",
     date: "April 2026",
     driveLink: "https://drive.google.com/file/d/1QCk1zG8Ly8BMb_cqKUHdxqkNl3J86ax-/view?usp=sharing",
-    description: "Mencakup supervised & unsupervised learning, model evaluation, dan feature engineering."
+    description: "Covered supervised & unsupervised learning, model evaluation, and feature engineering."
   },
   {
     id: 5,
-    title: "Pemrograman dengan Python",
+    title: "Programming with Python",
     issuer: "Dicoding Indonesia",
     date: "February 2026",
     driveLink: "https://drive.google.com/file/d/1gGK2t0IuyV0boWNOnv2dCm6wCVtm04Lv/view?usp=sharing",
-    description: "Dasar-dasar Python, struktur data, OOP, dan penggunaan library untuk data science."
+    description: "Python basics, data structures, OOP, and libraries for data science."
   }
 ];
 
@@ -156,7 +156,7 @@ function a11yProps(index) {
 }
 
 /* =========================
-   CARD PROYEK
+   PROJECT CARD
 ========================= */
 const ProjectCard = ({ project, index }) => {
   return (
@@ -210,7 +210,7 @@ ProjectCard.propTypes = {
 };
 
 /* =========================
-   CARD SERTIFIKAT
+   CERTIFICATE CARD (English button)
 ========================= */
 const CertificateCard = ({ certificate, index }) => {
   return (
@@ -242,7 +242,7 @@ const CertificateCard = ({ certificate, index }) => {
             className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-white hover:scale-105 transition-all duration-300"
           >
             <FileText className="w-4 h-4" />
-            Lihat Sertifikat
+            View Certificate
           </a>
         </div>
       </div>
@@ -256,7 +256,7 @@ CertificateCard.propTypes = {
 };
 
 /* =========================
-   BOOTCAMP INFO (tanpa tombol)
+   BOOTCAMP INFO (no button)
 ========================= */
 const BootcampInfo = () => {
   return (
@@ -282,7 +282,6 @@ const BootcampInfo = () => {
             <p className="text-gray-300 text-sm">Capstone project: AI-based CV analysis for curriculum vitae evaluation</p>
           </div>
         </div>
-        {/* Tombol "View Bootcamp Details" TELAH DIHAPUS */}
       </div>
     </div>
   );
