@@ -191,7 +191,7 @@ const AboutPage = () => {
               data-aos="fade-right"
               data-aos-duration="1500"
             >
-              I am an Informatics Engineering student at Politeknik Negeri Batam, specializing in Web Development and AI Engineering. I have experience building modern web applications using Laravel, React, and FastAPI, as well as deploying machine learning models (TensorFlow, CNN) into scalable, user‑centric systems. I am capable of managing end‑to‑end projects – from design to deployment – and focused on delivering efficient digital solutions that drive business value and improve user experience.
+              Informatics Engineering student at Politeknik Negeri Batam specializing in Full-Stack Web Development and AI integration. Experienced in developing scalable web applications using Laravel, React, and FastAPI, with strong problem-solving, project leadership, and system development skills.
             </p>
 
             {/* Quote Section */}
@@ -214,7 +214,7 @@ const AboutPage = () => {
 
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-4 lg:px-0 w-full">
               <a
-                href="https://drive.google.com/file/d/1xVPkqzfMOZNjPCzLBniv4a2EtkJusWir/view?usp=sharing"
+                href="https://drive.google.com/file/d/1Ib0KOLyaSsMA40IvgLenGmgKKs31ZUFQ/view?usp=sharing"
                 className="w-full lg:w-auto"
               >
                 <button

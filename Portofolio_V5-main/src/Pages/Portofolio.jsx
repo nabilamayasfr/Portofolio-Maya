@@ -156,7 +156,7 @@ function a11yProps(index) {
 }
 
 /* =========================
-   PROJECT CARD
+   PROJECT CARD (FIXED: bulletPoints container now has flex-grow)
 ========================= */
 const ProjectCard = ({ project, index }) => {
   return (
@@ -168,7 +168,8 @@ const ProjectCard = ({ project, index }) => {
       <div className="p-6 flex flex-col flex-grow">
         <h3 className="text-2xl font-bold text-white">{project.title}</h3>
         
-        <div className="mt-4 space-y-2">
+        {/* FIX: added flex-grow to push button to bottom */}
+        <div className="mt-4 space-y-2 flex-grow">
           {project.bulletPoints.map((point, i) => (
             <div key={i} className="flex items-start gap-2">
               <CheckCircle2 className="w-5 h-5 text-purple-400 shrink-0 mt-0.5" />
@@ -210,7 +211,7 @@ ProjectCard.propTypes = {
 };
 
 /* =========================
-   CERTIFICATE CARD (English button)
+   CERTIFICATE CARD
 ========================= */
 const CertificateCard = ({ certificate, index }) => {
   return (
@@ -256,7 +257,7 @@ CertificateCard.propTypes = {
 };
 
 /* =========================
-   BOOTCAMP INFO (no button)
+   BOOTCAMP INFO
 ========================= */
 const BootcampInfo = () => {
   return (
